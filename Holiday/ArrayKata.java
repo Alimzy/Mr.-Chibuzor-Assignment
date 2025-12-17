@@ -14,6 +14,7 @@ System.out.println(Arrays.toString(maximumAndMinimum(myArray)));
 System.out.println(numberOfEven(myArray));
 System.out.println(numberOfOdd(myArray));
 System.out.println(Arrays.toString(arrayOfOdd(myArray)));
+System.out.println(Arrays.toString(arrayOfEven(myArray)));
 System.out.println(Arrays.toString(squareArray(myArray)));
 }
 
@@ -162,12 +163,34 @@ return count;
 
 public static int[] arrayOfOdd(int[] myArray){
 
-int[] newArray = new int[(myArray.length / 2)+1];                                                    
+int index = 0;
+
+int[] newArray = new int[(myArray.length / 2)];                                                    
 
 for(int counter = 0;counter < myArray.length;counter++){
 
 if(myArray[counter] % 2 != 0){
-newArray[counter] = myArray[counter];
+newArray[index] = myArray[counter];
+index++;
+}
+
+}
+
+return newArray;
+
+}
+
+public static int[] arrayOfEven(int[] myArray){
+
+int index = 0;
+
+int[] newArray = new int[(myArray.length / 2)];                                                    
+
+for(int counter = 0;counter < myArray.length;counter++){
+
+if(myArray[counter] % 2 == 0){
+newArray[index] = myArray[counter];
+index++;
 }
 
 }

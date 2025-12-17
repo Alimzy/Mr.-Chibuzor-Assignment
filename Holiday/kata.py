@@ -1,4 +1,4 @@
-import math
+
 def is_even(number):
     if number % 2 == 0:
         return True
@@ -17,7 +17,7 @@ print(is_prime(7))
 
 def substract(number_one, number_two):
     subtraction = number_one - number_two
-    return math.fabs(subtraction) 
+    return abs(subtraction) 
 
 print(substract(2,4))
 
@@ -41,16 +41,15 @@ def factor_of(number):
 print(factor_of(10))
 
 def palindrome(number):
-    first_number = number / 10000
-    second_number = (number / 1000) % 10
-    third_number = (number / 100) % 10
-    fourth_number = (number / 10) % 10
+    first_number = number // 10000
+    second_number = (number // 1000) % 10
+    third_number = (number // 100) % 10
+    fourth_number = (number // 10) % 10
     last_number = number % 10
     
     if first_number == last_number and second_number == fourth_number:
         return True
-    else:
-        return False
+    return False
 
 print(palindrome(54145))
 
@@ -68,3 +67,11 @@ def square_of(number):
     return square
 
 print(square_of(5))
+
+def is_square(number):
+    for count in range(1,number):
+        if count * count == number:           
+            return True
+    return False
+
+print(is_square(25))

@@ -9,6 +9,7 @@ System.out.println(factorOf(10));
 System.out.println(palindrome(54145));
 System.out.println(squareNumber(5));
 System.out.println(factorialOf(5));
+System.out.println(isSquare(16));
 }
 
 public static boolean isEven(int number){
@@ -88,6 +89,20 @@ long square = number * number;
 
 return square;
 }
+
+public static boolean isSquare(int number){
+for(int counter = 1; counter < number; counter++){
+if(counter * counter == number){
+
+return true;
+}
+
+
+}
+return false;
+}
+
+
 
 
 
