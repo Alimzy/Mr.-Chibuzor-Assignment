@@ -10,6 +10,8 @@ System.out.println(squareOf(5));
 System.out.println(factorialOf(5));
 System.out.println(factorOf(4));
 System.out.println(isPalindrone(12321));
+perfectNumbers();
+System.out.println(isPerfect(6));
 }
 
 public static boolean isEven(int a){
@@ -64,8 +66,7 @@ public static boolean isPalindrone(int number){
 if(firstDigit == fifthDigit && secondDigit == fourthDigit){
 return true;
 }else{
-return false
-;
+return false;
 }
 
 
@@ -87,8 +88,37 @@ int numOfFactorial = 1;
 
 }
 
+public static void perfectNumbers(){
+
+int counter;
+for( counter =1; counter <= 1000; counter++){
+    int perfectNumber = 0;
+    for(int counterTwo = 1; counterTwo < counter ; counterTwo++){
+     if(counter % counterTwo == 0){
+      perfectNumber = perfectNumber + counterTwo;
+           }
+    }
+if(perfectNumber == counter){
+System.out.printf("%d,%n", counter);
+}
+}
+}
 
 
+public static boolean isPerfect(int number){
+    int sumOfFactor = 0;
+    for(int count =1; count < number;count++){
+    if(count % number == 0){
+        sumOfFactor += count;
+}
+}
+if(sumOfFactor == number){
+return true;
+}else{
+return false;
+}
+
+}
 
 
 

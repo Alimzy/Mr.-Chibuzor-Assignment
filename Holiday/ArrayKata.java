@@ -34,7 +34,7 @@ return maximum;
 
 
 public static int minimumIn(int[] myArray){
-
+ 
 int minimum = myArray[0];
 
 for(int counter = 0;counter < myArray.length;counter++){
