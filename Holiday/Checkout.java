@@ -41,6 +41,14 @@ System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n","SEMICOLON STORES","MAIN BRANCH
 
 double total = amountPerUnit * numberOfItem;
 double subTotal = total;
+
+double discount = 0.08 * total;
+
+double vat = (17.50 / 100) * total;
+
+double totalBill = (subTotal + vat) - discount;
+
+
 System.out.println();
 System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%s%n%s%s%n","SEMICOLON STORES","MAIN BRANCH", "LOCATION: 312 HERBERT MACAULAY, SABO YABA, LAGOA", "08056906817","DATE: 18-Dec-22 8:48:11pm","cashier: ",cashierName,"Customer Name: ",customerName);
 
@@ -51,6 +59,20 @@ System.out.printf("%20s%10s%10s%15s\n", "ITEM", "QTY", "PRICE", "TOTAL(NGN)");
 System.out.printf("%20s%10s%10s%15s\n",itemName, numberOfItem, amountPerUnit,total);
 System.out.println("--------------------------------------------------------------------------------");
 System.out.printf("%30s%15f\n","Sub Total: ", subTotal);
+System.out.printf("%30s%15f\n" ,"Discout: ",discount);
+System.out.printf("%30s%15f\n" ,"VAT @17.50%: ",vat);
+
+System.out.println("================================================================================");
+
+System.out.printf("%30s%15f\n" ,"Bill Total: ", totalBill);
+System.out.println("================================================================================");
+System.out.println("THIS IS NOT A RECEIPT KINDLY PAY " + totalBill);
+System.out.println("================================================================================");
+
+System.out.println("How much did the customer give to you? ");
+double amountPerUnit = input.nextDouble();
+
 }
+
 
 }
