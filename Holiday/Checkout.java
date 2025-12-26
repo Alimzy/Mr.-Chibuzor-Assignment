@@ -12,41 +12,49 @@ System.out.print("What is the customer's Name? ");
 String customerName = input.nextLine();
 
 
-boolean count = true;
+String[] itemNames = new String[40];
+int[] numberOfItems = new int[40];
+double[] amountPerUnits = new double[40];
+double[] totals = new double[40];
 
-//while(count){
+int count = 0;
+
+
+while(true){
 
 System.out.println("What did the user buy? ");
-String itemName = input.nextLine();
+itemNames[count] = input.nextLine();
 
 
 System.out.println("How many pieces? ");
-int numberOfItem = input.nextInt();
+//int numberOfItem = input.nextInt();
+amountPerUnits[count] = input.nextInt();
 
 System.out.println("How much per unit? ");
-double amountPerUnit = input.nextDouble();
+//double amountPerUnit = input.nextDouble();
+numberOfItems[count] = input.nextInt();
 
+totals[count] = amountPerUnits[count] * numberOfItems[count];
 
-System.out.println("Add more item? ");
-String repeat = input.nextLine();
+ input.nextLine();
 
-if(repeat.equalsIgnoreCase("yes")){
-count = false;
+System.out.println("Add more item? (YES/NO)");
+String add = input.nextLine().trim();
 
-System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%n%s%n","SEMICOLON STORES","MAIN BRANCH", "LOCATION: 312 HERBERT MACAULAY, SABO YABA, LAGOA", "08056906817","DATE: 18-Dec-22 8:48:11pm",cashierName,customerName);
+count++;
+if(add.equalsIgnoreCase("NO")){
+break;
+}
 
-//}
 
 }
 
-double total = amountPerUnit * numberOfItem;
-double subTotal = total;
+System.out.println("How much discount will he/she get? ");
+ double inputDiscount = input.nextDouble();
 
-double discount = 0.08 * total;
+double subTotal = 0;
 
-double vat = (17.50 / 100) * total;
 
-double totalBill = (subTotal + vat) - discount;
 
 
 System.out.println();
@@ -56,7 +64,20 @@ System.out.println("============================================================
 
 System.out.printf("%20s%10s%10s%15s\n", "ITEM", "QTY", "PRICE", "TOTAL(NGN)");
 
-System.out.printf("%20s%10s%10s%15s\n",itemName, numberOfItem, amountPerUnit,total);
+//System.out.printf("%20s%10s%10s%15s\n",itemName, numberOfItem, amountPerUnit,total);
+for(int counter = 0; counter < count;counter++){
+System.out.printf("%20s%10d%10f%15f\n",itemNames[counter], numberOfItems[counter], amountPerUnits[counter],totals[counter]);
+
+subTotal += totals[counter];
+}
+
+double discount = (inputDiscount / 100) * subTotal;
+
+double vat = (17.50 / 100) * subTotal;
+
+double totalBill = (subTotal + vat) - discount;
+
+
 System.out.println("--------------------------------------------------------------------------------");
 System.out.printf("%30s%15f\n","Sub Total: ", subTotal);
 System.out.printf("%30s%15f\n" ,"Discout: ",discount);
@@ -70,7 +91,43 @@ System.out.println("THIS IS NOT A RECEIPT KINDLY PAY " + totalBill);
 System.out.println("================================================================================");
 
 System.out.println("How much did the customer give to you? ");
-double amountPerUnit = input.nextDouble();
+double amountPaid = input.nextDouble();
+double  balance = amountPaid - totalBill;
+System.out.println();
+System.out.printf("%s%n%s%n%s%n%s%n%s%n%s%s%n%s%s%n","SEMICOLON STORES","MAIN BRANCH", "LOCATION: 312 HERBERT MACAULAY, SABO YABA, LAGOA", "08056906817","DATE: 18-Dec-22 8:48:11pm","cashier: ",cashierName,"Customer Name: ",customerName);
+
+System.out.println("================================================================================");
+
+System.out.printf("%20s%10s%10s%15s\n", "ITEM", "QTY", "PRICE", "TOTAL(NGN)");
+
+for(int counter = 0; counter < count;counter++){
+System.out.printf("%20s%10d%10f%15f\n",itemNames[counter], numberOfItems[counter], amountPerUnits[counter],totals[counter]);
+
+subTotal += totals[counter];
+}
+
+System.out.println("--------------------------------------------------------------------------------");
+System.out.printf("%30s%15f\n","Sub Total: ", subTotal);
+System.out.printf("%30s%15f\n" ,"Discout: ",discount);
+System.out.printf("%30s%15f\n" ,"VAT @17.50%: ",vat);
+
+System.out.println("================================================================================");
+
+System.out.printf("%30s%15f\n" ,"Bill Total: ", totalBill);
+System.out.printf("%30s%15f\n" ,"Amount Paid: ", amountPaid);
+
+System.out.printf("%30s%15f\n" ,"Balance: ", balance);
+
+
+
+
+System.out.println("================================================================================");
+System.out.printf("%30s\n","THANK YOU FOR YOUR PATRONAGE");
+System.out.println("================================================================================");
+
+
+
+
 
 }
 
