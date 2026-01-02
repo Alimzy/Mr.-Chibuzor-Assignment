@@ -205,6 +205,8 @@ int[] newArray = new int[(myArray.length)];
 
 for(int counter = 0;counter < myArray.length;counter++){
 
+
+
 newArray[counter] = myArray[counter] * 2;
 
 }
