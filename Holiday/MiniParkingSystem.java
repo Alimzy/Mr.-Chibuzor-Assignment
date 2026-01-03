@@ -27,9 +27,10 @@ int option = input.nextInt();
 if(option == 1){
 System.out.println("Enter the slot you want to park your car? ");
 int parkCar = input.nextInt();
-
-if(parkingSpace[parkCar] == 1){
-System.out.println("Slot is occupied");
+if (parkCar < 0 || parkCar > parking_space.length){
+ System.out.println("Slot number does not exist, there is only 20 valid spot!")
+}else if(parkingSpace[parkCar] == 1){
+System.out.println("Slot is occupied! 2");
 }else{
 parkingSpace[parkCar] = 1;
 System.out.println("you have succesfully parked your car");
@@ -40,7 +41,10 @@ System.out.println("you have succesfully parked your car");
 System.out.println("Enter the slot where your car is? ");
 int removeCar = input.nextInt();
 
-if(parkingSpace[removeCar] == 0){
+if (removeCar < 0 || removeCar > parkingSpace.length){
+ System.out.println("Slot number does not exist, there is only 20 valid spot!")
+
+}else if(parkingSpace[removeCar] == 0){
 System.out.println("Slot is empty! ");
 }else {
 parkingSpace[removeCar] = 0;
