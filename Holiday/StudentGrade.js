@@ -1,43 +1,38 @@
-import java.util.Scanner;
-import java.util.Arrays;
+const prompt = require('prompt-sync')()
 
-public class StudentGrade{
-public static void main(String... args){
-Scanner input = new Scanner(System.in);
 
-System.out.println("How many student do you have? ");
-int numberOfStudents = input.nextInt();
+let  numberOfStudents = Number(prompt("How many student do you have? "));
 
-System.out.println("How many subject do they offer? ");
-int numberOfSubjects = input.nextInt();
+let numberOfSubjects = Number(prompt("How many subject do they offer? "));
 
-int[][] studentData = new int[numberOfStudents][numberOfSubjects];
 
-int[] totalEachStudentScores = new int[numberOfStudents];
-int[] averageEachStudentScores = new int[numberOfStudents];
-int[] positionEachStudent = new int[numberOfStudents];
+let studentData = []
 
-int[] passPerSubject = new int[numberOfSubjects];
-int[] failPerSubject = new int[numberOfSubjects];
+let totalEachStudentScores = []
+let averageEachStudentScores = []
+let positionEachStudent = []
 
-int totalStudentScores = 0;
-int averageStudentScores = 0;
-int overallHighestScore = studentData[0][0];
-int getOverallHighestStudent = 0;
-int getOverallHighestSubject = 0;
+let passPerSubject = []
+let failPerSubject = []
 
-int overallLowestScore = studentData[0][0];
-int getOverallLowestStudent = 0;
-int getOverallLowestSubject = 0;
+let totalStudentScores = 0;
+let averageStudentScores = 0;
+let overallHighestScore = studentData[0][0];
+let getOverallHighestStudent = 0;
+let getOverallHighestSubject = 0;
+
+let overallLowestScore = studentData[0][0];
+let getOverallLowestStudent = 0;
+let getOverallLowestSubject = 0;
 
 for(int students = 0; students < numberOfStudents; students++){
-System.out.println("Entering score for student " + (students + 1));
-int totalScores = 0;
-int averageScores = 0;
+console.lo("Entering score for student " + (students + 1));
+let totalScores = 0;
+let averageScores = 0;
 
 for(int subjects = 0; subjects < numberOfSubjects; subjects++){
-System.out.println("Enter score for subject " + (subjects + 1));
-studentData[students][subjects] = input.nextInt();
+studentData[students][subjects] = Number(prompt("Enter score for subject " + (subjects + 1)));
+
 
 totalScores += studentData[students][subjects];
 averageScores = totalScores / numberOfStudents;
@@ -50,21 +45,8 @@ averageStudentScores += averageScores;
 
 
 
-
-//System.out.println(Arrays.deepToString(studentData));
-//System.out.println(Arrays.toString(totalEachStudentScores));
-//System.out.println(Arrays.toString(averageEachStudentScores));
-//System.out.println(totalStudentScores);
-//int total = 0;
-//for(int students = 0; counter < totalEachRows.length; counter++){
-//int 
-//
-//
-//}
-//
-
 for(int student = 0; student < numberOfStudents; student++){
-int pos = 1;
+let pos = 1;
 
 for(int otherStudent = 0; otherStudent < numberOfStudents; otherStudent++){
 if(totalEachStudentScores[otherStudent] > totalEachStudentScores[student]){
@@ -87,26 +69,26 @@ getOverallLowestSubject = otherStudent;
 positionEachStudent[student] = pos;
 }
 
-System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
-System.out.printf("%-10s", "STUDENTS");
+console.log("%-10s", "STUDENTS");
 
 for(int subjectHeading = 1; subjectHeading <= numberOfSubjects; subjectHeading++){
-System.out.printf("%10s", "SUB" + subjectHeading);
+console.log("%10s", "SUB" + subjectHeading);
 }
 
-System.out.printf("%10s%10s%10s%n", "TOT", "AVE", "POS");
+console.log("%10s%10s%10s%n", "TOT", "AVE", "POS");
 
-System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 
 for(int displayStudent = 0; displayStudent < numberOfStudents; displayStudent++){
-System.out.printf("%-10s", "Student" + (displayStudent + 1));
+console.log("%-10s", "Student" + (displayStudent + 1));
 
 for(int displaySubject = 0; displaySubject < numberOfSubjects; displaySubject++){
-System.out.printf("%10d",studentData[displayStudent][displaySubject]);
+console.log("%10d",studentData[displayStudent][displaySubject]);
 
 }
-System.out.printf("%10d", totalEachStudentScores[displayStudent]);
+console.log("%10d", totalEachStudentScores[displayStudent]);
 
 System.out.printf("%10d", averageEachStudentScores[displayStudent]);
 
