@@ -218,9 +218,9 @@ bestGraduatingStudent = totalEachStudentScores[counter];
 getBGS = counter;
 }
 
-if(totalEachStudentScores[counter] < bestGraduatingStudent){
-bestGraduatingStudent = totalEachStudentScores[counter];
-getBGS = counter;
+if(totalEachStudentScores[counter] < worstGraduatingStudent){
+worstGraduatingStudent = totalEachStudentScores[counter];
+getWGS = counter;
 }
 }
 
