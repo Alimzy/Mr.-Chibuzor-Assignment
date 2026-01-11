@@ -12,29 +12,31 @@ position_each_student = []
 pass_per_subject = []
 fail_per_subject = []
 
-total_student_scores = 0;
-average_student_scores = 0;
-overall_highest_score = student_data[0][0];
-get_overall_highest_student = 0;
-get_overall_highest_subject = 0;
+total_student_scores = 0
+average_student_scores = 0
+overall_highest_score = 0
+get_overall_highest_student = 0
+get_overall_highest_subject = 0
 
-overall_lowest_score = student_data[0][0];
-get_overall_lowest_student = 0;
-get_overall_lowest_subject = 0;
+overall_lowest_score = 0
+get_overall_lowest_student = 0
+get_overall_lowest_subject = 0
 
 for students in range(0, number_of_students):
-    print("Entering score for student " , (students + 1));
+    print("Entering score for student " , (students + 1))
+    student_data.append([])
     total_scores = 0;
     average_scores = 0;
 
     for subjects in range(0, number_of_subjects):
-        student_data[students][subjects] = Number(prompt("Enter score for subject " , (subjects + 1)));
-        total_scores += student_data[students][subjects]
+        score = int(input(f"Enter score for subject {subjects + 1} : "))
+        student_data[students].append(score)
+        total_scores += score
         average_scores = total_scores / number_of_students
 
-    total_each_student_scores[students].append(total_scores)
+    total_each_student_scores.append(total_scores)
     total_student_scores += total_scores
-    average_each_student_scores[students].append(average_scores)
+    average_each_student_scores.append(average_scores)
     average_student_scores += average_scores;
 
 
@@ -45,7 +47,7 @@ for student in range(0,number_of_students):
 
     for otherStudent in range(0, number_of_students):
         if total_each_student_scores[otherStudent] > total_each_student_scores[student]:
-            pos++
+            pos += 1
 
         if student_data[student][otherStudent] > overall_highest_score:
             overall_highest_score = student_data[student][otherStudent]
@@ -60,36 +62,36 @@ for student in range(0,number_of_students):
     
 
     
-    position_each_student[student] = pos
+    position_each_student.append(pos)
     
 
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
-print(f"{'STUDENT':<10}")
+print(f"{'STUDENT':<10}",end="")
 
-for subject_heading in range(0,number_of_subject):
-    print(f"{'SUB' + (subject_heading + 1) : >10}")
+for subject_heading in range(0,number_of_subjects):
+    print(f"{'SUB' + str(subject_heading + 1): >10} ",end="")
  
 
-print(f"{'TOT': >10},{'AVE':>10} {'POS':>10}")
+print(f"{'TOT': >10} {'AVE':>10} {'POS':>10}")
 
 print(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 
 
-for displayStudent in range(0,number_of_students):
-    print(f"{'Student' + (displayStudent + 1)})
+for display_student in range(0,number_of_students):
+    print(f"{'Student' + str(display_student + 1)}",end="")
 
     for display_subject in range(0,number_of_subjects):
-        print(f"{student_data[displayStudent][displaySubject]:>10}")
+        print(f"{student_data[display_student][display_subject]:>10}",end="")
 
 
-    print(f"{total_each_student_scores[displayStudent]:>10}")
+    print(f"{total_each_student_scores[display_student]:>10}",end="")
 
-    print(f"{average_each_student_scores[displayStudent]:>10}")
+    print(f"{average_each_student_scores[display_student]:>10}",end="")
 
-    print(f"{position_each_student[displayStudent]:>10}")
+    print(f"{position_each_student[display_student]:>10}",end="")
 
-    print("\n");
+    print();
 
 
 
@@ -125,8 +127,8 @@ for subject in range(0,number_of_subjects):
             get_lowest_student = student;
 
 
-    pass_per_subject[subject].append(number_of_passes)
-    fail_per_subject[subject].append(number_of_fails)
+    pass_per_subject.append(number_of_passes)
+    fail_per_subject.append(number_of_fails)
 
     average_score = total_score / number_of_students;
     print("Highest Scoring student is:  Student " ,  (get_highest_student + 1) , " Scoring " , highest_score)
@@ -142,15 +144,15 @@ for subject in range(0,number_of_subjects):
 print("")
 print("")
 
-hardest_subject = 0;
-hardest_subject_fail = fail_per_subject[0];;
-easiest_subject = 0;
-easiest_subject_passes = pass_per_subject[0];
+hardest_subject = 0
+hardest_subject_fail = fail_per_subject[0]
+easiest_subject = 0
+easiest_subject_passes = pass_per_subject[0]
 
 for  count in range(0,number_of_subjects):
-    if pass_per_subject[count] > easiest_subject):
-        easiest_subject = count;
-        easiest_subject_passes = pass_per_subject[count];
+    if pass_per_subject[count] > easiest_subject:
+        easiest_subject = count
+        easiest_subject_passes = pass_per_subject[count]
 
 
     if fail_per_subject[count] > hardest_subject:
@@ -179,11 +181,11 @@ get_WGS = 0
 
 
 for counter in range(0,number_of_students):
-    if total_each_student_scores[counter] > best_graduating_student):
+    if total_each_student_scores[counter] > best_graduating_student:
         best_graduating_student = total_each_student_scores[counter]
         get_BGS = counter
 
-    if total_each_student_scores[counter] < worst_graduating_student){
+    if total_each_student_scores[counter] < worst_graduating_student:
         worst_graduating_student = total_each_student_scores[counter]
         get_WGS = counter
     
