@@ -39,7 +39,7 @@ totals[count] = amountPerUnits[count] * numberOfItems[count];
  input.nextLine();
 
 System.out.println("Add more item? (YES/NO)");
-String add = input.nextLine().trim();
+String add = input.nextLine();
 
 count++;
 if(add.equalsIgnoreCase("NO")){

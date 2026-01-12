@@ -28,7 +28,7 @@ if(whenFertilePeriodStart < 0){
 whenFertilePeriodStart += lastPeriodCycle;
 }
 
-int fertilePeriodEnd =  ovulationDay;
+int fertilePeriodEnd =  ovulationDay + 1;
 int whenFertilePeriodEnd = fertilePeriodEnd - currentDay;
 if(whenFertilePeriodEnd < 0){
 whenFertilePeriodEnd += lastPeriodCycle;
